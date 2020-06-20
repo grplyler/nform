@@ -22,17 +22,16 @@
 * **Detect nmap stealth scans**
     * Tested with `SYN`, `FIN`, `AKC`, `XMAS` and others
 * **Small, Single Binary**
-    * `nmap` tailored packet filtration and detection in a `6.9M` binary.
+    * `nmap` tailored packet filtration and detection in a `6.8M` binary.
 * **Fast and Memory Efficient**
     * nform uses about 3MB of memory when running and very little CPU with and `nmap -T5` scan
 * **Portable**
-* **Cross platform**
-    * Windows Binary Comming Soon!
+
 
 ## Download
 
 ```
-wget https://github.com/grplyler/nform/releases/download/v0.1.0/nform
+wget https://github.com/grplyler/nform/releases/download/v0.2.0/nform
 ```
 
 ## How to Use
