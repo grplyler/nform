@@ -2,7 +2,7 @@ extern crate clap;
 
 pub fn parse_args() -> clap::ArgMatches<'static> {
     let matches = clap::App::new("NFORM - Be nform'd of nmap scans")
-        .version("0.1.0")
+        .version("0.2.0")
         .author("Ryan Plyler <g.r.plyler@gmail.com>")
         .about("Detects nmap stealth scans and notifies via Discord Bot")
         .arg(clap::Arg::with_name("threshold")
