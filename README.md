@@ -12,6 +12,7 @@
   <a href="#download">Download</a> •
   <a href="#how-to-use">How To Use</a> •
   <a href="#examples">Examples</a> •
+  <a href="#building">Building</a> •
   <a href="#contributing">Contributing</a> •
   <a href="#credits">Credits</a> •
   <a href="#license">License</a>
@@ -90,6 +91,44 @@ This will inform you via discord after the first packet threshold is triggered (
 ```
 ./nform -t 5 -w 60
 ```
+
+## Building
+
+Heres how you build from source.
+
+## Building on Linux
+
+Install the rust toolchain with [rustup](https://www.rust-lang.org/tools/install) if you don't already have it.
+
+Install libpcap-dev (Ubuntu & Debian Variants)
+
+```
+apt-get install libpcap-dev
+```
+
+Clone the repo
+```
+git clone https://github.com/grplyler/nform.git
+```
+
+Build!
+```
+cd nform
+cargo build
+cargo run
+```
+
+Building for realease
+
+```
+cargo build --release
+```
+
+Binaries will be at `./target/debug/nform` and `./target/release/nform`
+
+### Building on Windows with WinPCap/npcap
+
+Coming soon! xD
 
 ## Rationale
 
