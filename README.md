@@ -59,6 +59,7 @@ Threshold: 5 (Only triggers after this many packets)
    Notify: Discord
 ========================================
 Listening for nmap scans...
+31.72.239.23 is potentially scanning us with an nmap SYN scan! (First Contact)
 ```
 
 ### Add Discord Bot for Notifications
