@@ -25,7 +25,7 @@
 * **Small, Single Binary**
     * `nmap` tailored packet filtration and detection in a `6.8M` binary.
 * **Fast and Memory Efficient**
-    * nform uses about 3MB of memory when running and very little CPU with and `nmap -T5` scan
+    * nform uses about 3MB of memory when running and very little CPU (about 0.1% when I tested) even witn an `nmap -T5` scan
 * **Portable**
 
 
