@@ -5,14 +5,15 @@
 
 <h3 align="center">Detect NMAP stealth scans and notify via discord bot</h3>
 
-<p align="center">
+![](carbon.png)
+
+<h3 align="center">
   <a href="#key-features">Key Features</a> •
-  <a href="#how-to-use">How To Use</a> •
   <a href="#download">Download</a> •
+  <a href="#how-to-use">How To Use</a> •
   <a href="#credits">Credits</a> •
-  <a href="#related">Related</a> •
   <a href="#license">License</a>
-</p>
+</h3>
 
 
 ## Key Features
@@ -26,27 +27,28 @@
 * **Cross platform**
     * Windows Binary Comming Soon!
 
-## How To Use
-
-**Using nform on Linux (amd64)**
-
-Download the binary
+## Download
 
 ```
 wget https://github.com/grplyler/nform/releases/download/v0.1.0/nform
 ```
+## How To Use
 
-Add Execute Permission
+**Using nform on Linux (amd64)**
+
+
+
+*Add Execute Permission*
 ```
 chmod +x ./nform
 ```
 
-Run with defaults (uses main interface)
+*Run with defaults (uses main interface)*
 ```
 ./nform
 ```
 
-Output
+*Output*
 ```
 ===== Config ===========================
 Threshold: 5 (Only triggers after this many packets)
@@ -56,33 +58,27 @@ Threshold: 5 (Only triggers after this many packets)
 Listening for nmap scans...
 ```
 
-Options
+### Add Discord Bot for Notifications
+
+By Default `nform` logs scanning activity to the console. But you can set the `DISCORD_TOKEN` and `DISCORD_CHANNEL_ID` evironment variables to enabled Discord Bot Notifications
+
+
+*On Linux*
 ```
-NFORM - Be nform'd of nmap scans 0.1.0
-Ryan Plyler <g.r.plyler@gmail.com>
-Detects nmap stealth scans and notifies via Discord Bot
-
-USAGE:
-    nform [FLAGS] [OPTIONS]
-
-FLAGS:
-    -d, --discord    Use discord bot to notify of scanning activity
-    -h, --help       Prints help information
-    -V, --version    Prints version information
-
-OPTIONS:
-    -c, --channel <channel>        Discord Bot channel ID (or set DISCORD_CHANNEL_ID env var)
-    -t, --threshold <threshold>    Number of scanning packets to capture before triggered
-    -k, --token <token>            Discord Bot Auth token (or set DISCORD_TOKEN env var
-    -w, --wait <wait>              Delay in seconds between discord notifications
+export DISCORD_TOKEN=yourdiscordtoken
+export DISCORD_CHANNEL_ID=yourdiscordchannelid
 ```
+
+*Note: You bot must be added to the server first.*
+Check out this post on how to create your discord bot and get and a`TOKEN`
+
 
 ## Rationale
 
 I wrote this little tool to accomplish the following goals
 * Learn Rust
-* Have very simple reconsiiance intrusion detection without having to install something heavier like `snort` or the like.
-* Explore Packets and the Layer 2 Level (For my Major in Networking & Security)
+* Have very simple recon intrusion detection without having to install something heavier like `snort` or the like.
+* Explore Packets at the Layer 2 Level (For my Major in Networking & Security)
 
 ## Disclaimer
 
@@ -109,9 +105,6 @@ This software uses the following open source packages:
 - [reqwest](https://crates.io/crates/reqwest) (Rust library for http requests)
 - [clap](https://crates.io/crates/clap) (Expressive Argument Parser for Rust)
 - [Carbon](http://carbon.now.sh) (Code Screenshots)
-
-
-## Support
 
 ## License
 
