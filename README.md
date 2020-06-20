@@ -63,7 +63,7 @@ Listening for nmap scans...
 
 ### Add Discord Bot for Notifications
 
-By Default `nform` logs scanning activity to the console. But you can set the `DISCORD_TOKEN` and `DISCORD_CHANNEL_ID` evironment variables to enabled Discord Bot Notifications
+By Default `nform` logs scanning activity to the console. But you can set the `DISCORD_TOKEN` and `DISCORD_CHANNEL_ID` evironment variables to enabled Discord Bot Notifications. See [Creating a Discord Bot](https://www.sitepoint.com/discord-bot-node-js/) to setup and authenticate a Discord Bot
 
 
 *On Linux*
