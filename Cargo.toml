@@ -9,4 +9,5 @@ edition = "2018"
 [dependencies]
 pcap = "0.7.0"
 hex = "0.4"
+rawsock = "0.3.0"
 reqwest = { version = "0.10.6", features = ["blocking", "json"] }
