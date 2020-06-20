@@ -29,6 +29,12 @@
 * **Cross platform**
     * Windows Binary Comming Soon!
 
+## Download
+
+```
+wget https://github.com/grplyler/nform/releases/download/v0.1.0/nform
+```
+
 ## How to Use
 
 **Using nform on Linux (amd64)**
