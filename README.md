@@ -7,10 +7,11 @@
 
 <p align="center">
   <a href="#key-features">Key Features</a> •
-  <a href="#how-to-use">How To Use</a> •
   <a href="#download">Download</a> •
+  <a href="#how-to-use">How To Use</a> •
+  <a href="#examples">Examples</a> •
+  <a href="#contributing">Contributing</a> •
   <a href="#credits">Credits</a> •
-  <a href="#related">Related</a> •
   <a href="#license">License</a>
 </p>
 
@@ -19,14 +20,14 @@
 * **Detect nmap stealth scans**
     * Tested with `SYN`, `FIN`, `AKC`, `XMAS` and others
 * **Small, Single Binary**
-    * `nmap` tailed packet filtration and detection in a `6.9M` binary.
+    * `nmap` tailored packet filtration and detection in a `6.9M` binary.
 * **Fast and Memory Efficient**
     * nform uses about 3MB of memory when running and very little CPU with and `nmap -T5` scan
 * **Portable**
 * **Cross platform**
     * Windows Binary Comming Soon!
 
-## How To Use
+## How to Use
 
 **Using nform on Linux (amd64)**
 
@@ -77,6 +78,25 @@ OPTIONS:
     -w, --wait <wait>              Delay in seconds between discord notifications
 ```
 
+## Examples
+
+*Add a longer delay for discord so you don't get spammed (2 mins)*
+
+This will inform you via discord after the first packet threshold is triggered (default is 10 packets) and again after the wait time in seconds
+```
+./nform -w 120
+```
+
+*Make nform less sensitive but adjusting packet threshold to 100*
+```
+./nform -t 100
+```
+
+*Mix it up, make nform very sensitive, but only notify once a minute*
+```
+./nform -t 5 -w 60
+```
+
 ## Rationale
 
 I wrote this little tool to accomplish the following goals
@@ -97,6 +117,14 @@ If you like this project, here are some ways you can contribute!
 * Feature Requests
 * Bug Reports (Although writing in Rust means significantly less bugs)
 * Platform Testing
+
+## Todo
+
+* [ ] Add interface select other than the main interface
+* [ ] Add Support for Windows
+* [ ] Add Support for Mac 
+* [ ] Add other notification mechanisms (Suggest some!)
+* [ ] Add automatic IP blocking
 
 ## Credits
 
