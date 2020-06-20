@@ -7,7 +7,7 @@
 
 ![](carbon.png)
 
-<h3 align="center">
+<p align="center">
   <a href="#key-features">Key Features</a> •
   <a href="#download">Download</a> •
   <a href="#how-to-use">How To Use</a> •
@@ -15,7 +15,7 @@
   <a href="#contributing">Contributing</a> •
   <a href="#credits">Credits</a> •
   <a href="#license">License</a>
-</h3>
+</p>
 
 
 ## Key Features
