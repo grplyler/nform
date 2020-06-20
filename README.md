@@ -141,7 +141,7 @@ I wrote this little tool to accomplish the following goals
 
 The code and executables in this project are a **work in progress**. While they can be used an tools/toys and what have you, they are not production ready and **shouldn't be used on crital systems** without understanding these disclaimers. 
 
-Also, as I am very new to the Rust language, I am sure the code is much messier than nessecary, so I welcome constructive critisism and pull requests!
+Also, as I am very new to the Rust language, I am sure the code is much messier than nessecary, so I welcome constructive critisism, comments, and pull requests!
 
 ## Contributing
 
