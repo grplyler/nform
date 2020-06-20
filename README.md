@@ -73,6 +73,10 @@ export DISCORD_TOKEN=yourdiscordtoken
 export DISCORD_CHANNEL_ID=yourdiscordchannelid
 ```
 
+*Example Message*
+
+![](scan.png)
+
 ## Examples
 
 *Add a longer delay for discord so you don't get spammed (2 mins)*
