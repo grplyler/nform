@@ -1,10 +1,10 @@
 extern crate clap;
 
 pub fn parse_args() -> clap::ArgMatches<'static> {
-    let matches = clap::App::new("nform - Be nform'd of nmap scan")
+    let matches = clap::App::new("NFORM - Be nform'd of nmap scans")
         .version("0.1.0")
-        .author("Ryan Plyler <grplyler@liberty.edu>")
-        .about("Detects stealth nmap scans and notifies via Discord Bot")
+        .author("Ryan Plyler <g.r.plyler@gmail.com>")
+        .about("Detects nmap stealth scans and notifies via Discord Bot")
         .arg(clap::Arg::with_name("threshold")
             .short("t")
             .long("threshold")
@@ -19,12 +19,12 @@ pub fn parse_args() -> clap::ArgMatches<'static> {
             .short("k")
             .long("token")
             .takes_value(true)
-            .help("Discord Bot Auth token"))
+            .help("Discord Bot Auth token (or set DISCORD_TOKEN env var"))
         .arg(clap::Arg::with_name("channel")
             .short("c")
             .long("channel")
             .takes_value(true)
-            .help("Discord Bot channel ID"))
+            .help("Discord Bot channel ID (or set DISCORD_CHANNEL_ID env var)" ))
         .arg(clap::Arg::with_name("wait")
             .short("w")
             .long("wait")

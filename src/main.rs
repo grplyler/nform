@@ -1,13 +1,12 @@
-use pcap::Device;
 use std::collections::HashMap;
 use std::time::Instant;
 use std::env;
 use std::process;
+
+use pcap::Device;
 use clap::ArgMatches;
 
 mod utils;
-
-static mut CONFIG: Option<Config> = None;
 
 struct Config {
     threshold: u32,
@@ -218,7 +217,7 @@ fn main() {
         .open().unwrap();
 
     // Display Config
-    println!("===== Config ===========================================");
+    println!("===== Config ===========================");
     println!("Threshold: {} (Only triggers after this many packets)", config.threshold);
     println!("     Wait: {} (Waits this many seconds before sending another Discord Message)", config.wait);
     if config.use_discord {
@@ -226,7 +225,7 @@ fn main() {
     } else {
         println!("   Notify: None (set DISCORD_TOKEN and DISCORD_CHANNEL_ID env var to notify with Discord bot)");
     }
-    println!("=========================================================");
+    println!("========================================");
 
     // Instantiate Hit Counter
     let mut counter = HitCounter::new(config.threshold, config.wait);
