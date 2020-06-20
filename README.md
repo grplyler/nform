@@ -21,7 +21,7 @@
 
 ## Key Features
 * **Detect nmap stealth scans**
-    * Tested with `SYN`, `FIN`, `AKC`, `XMAS` and others
+    * Tested with `SYN`, `FIN`, `ACK`, `XMAS` and `NULL` tcp scans.
 * **Small, Single Binary**
     * `nmap` tailored packet filtration and detection in a `6.8M` binary.
 * **Fast and Memory Efficient**
