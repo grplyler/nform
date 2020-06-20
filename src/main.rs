@@ -21,39 +21,28 @@ impl Config {
 
         let mut use_discord = false;
 
-        let discord_channel_id = match matches.value_of("channel") {
-            Some(channel) => {
+        let discord_channel_id = match env::var("DISCORD_CHANNEL_ID") {
+            Ok(channel) => {
                 use_discord = true;
                 channel.to_string()
             },
-            None => match env::var("DISCORD_CHANNEL_ID") {
-                Ok(channel) => {
-                    use_discord = true;
-                    channel.to_string()
-                },
-                Err(_) => {
-                    use_discord = false;
-                    String::from("")
-                }
+            Err(_) => {
+                use_discord = false;
+                String::from("")
             }
         };
-
-        let discord_token = match matches.value_of("token") {
-            Some(value) => {
+        
+        let discord_token = match env::var("DISCORD_TOKEN") {
+            Ok(value) => {
                 use_discord = true;
                 value.to_string()
             },
-            None => match env::var("DISCORD_TOKEN") {
-                Ok(value) => {
-                    use_discord = true;
-                    value.to_string()
-                },
-                Err(_) => {
-                    use_discord = false;
-                    String::from("")
-                }
-            }        
-        };
+            Err(_) => {
+                use_discord = false;
+                String::from("")
+            }
+        };        
+        
 
         // Instantiate Offender HitCounter with Threshold of 10 packets.
         let threshold: u32 = matches.value_of("threshold").unwrap_or("5").parse()
