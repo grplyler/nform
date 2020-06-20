@@ -31,7 +31,7 @@
 ## Download
 
 ```
-wget https://github.com/grplyler/nform/releases/download/v0.1.0/nform
+wget https://github.com/grplyler/nform/releases/download/v0.2.0/nform
 ```
 
 ## How to Use
