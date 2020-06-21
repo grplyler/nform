@@ -8,7 +8,7 @@
 ![](carbon.png)
 
 <p align="center">
-  <a href="#key-features">Key Features</a> •
+  <a href="#key-features" style="color: red; padding-left: 10px; padding-right: 10px; padding-top: 5px; padding-bottom: 5px; border-radius: 3px; background-color: white; box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);">Key Features</a> •
   <a href="#download">Download</a> •
   <a href="#how-to-use">How To Use</a> •
   <a href="#examples">Examples</a> •
