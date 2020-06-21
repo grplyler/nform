@@ -1,6 +1,6 @@
 [package]
 name = "nform"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["Ryan Plyler <g.r.plyler@gmail.com>"]
 edition = "2018"
 
@@ -9,5 +9,9 @@ edition = "2018"
 [dependencies]
 pcap = "0.7.0"
 hex = "0.4"
+<<<<<<< HEAD
 rawsock = "0.3.0"
+=======
+clap = "2.33.1"
+>>>>>>> master
 reqwest = { version = "0.10.6", features = ["blocking", "json"] }

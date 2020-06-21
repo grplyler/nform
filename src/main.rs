@@ -1,58 +1,62 @@
-use pcap::Device;
 use std::collections::HashMap;
 use rawsock::open_best_library;
 use std::time::Instant;
 use std::env;
+use std::process;
+
+use pcap::Device;
+use clap::ArgMatches;
+
+mod utils;
 
 struct Config {
     threshold: u32,
     wait: u32,
+    use_discord: bool,
     discord_channel_id: String,
     discord_token: String
 }
 
 impl Config {
-    fn parse() -> Result<Config, &'static str> {
+    fn parse(matches: &ArgMatches) -> Result<Config, &'static str> {
 
+        let mut use_discord = false;
 
         let discord_channel_id = match env::var("DISCORD_CHANNEL_ID") {
-            Ok(id) => id,
-            _ => {
-                println!("Not notifying with discord. Not DISCORD_CHANNEL_ID env set.");
-                let value = String::from("");
-                value
+            Ok(channel) => {
+                use_discord = true;
+                channel.to_string()
+            },
+            Err(_) => {
+                use_discord = false;
+                String::from("")
             }
         };
-
+        
         let discord_token = match env::var("DISCORD_TOKEN") {
-            Ok(token) => token,
-            _ => {
-                println!("Not notifying with discord. Not DISCORD_TOKEN env set.");
-                let value = String::from("");
-                value
+            Ok(value) => {
+                use_discord = true;
+                value.to_string()
+            },
+            Err(_) => {
+                use_discord = false;
+                String::from("")
             }
-        };
+        };        
+        
 
         // Instantiate Offender HitCounter with Threshold of 10 packets.
-        let threshold = match env::args().nth(1) {
-            Some(threshold) => threshold.parse().expect("Threshold must be a integer"),
-            _ => {
-                println!("Using default packet threshold of 5");
-                5
-            }
-        };
+        let threshold: u32 = matches.value_of("threshold").unwrap_or("5").parse()
+            .expect("threshold must be an integer");
 
-        let wait = match env::args().nth(2) {
-            Some(wait) => wait.parse().expect("wait must be an integer"),
-            _ => {
-                println!("Using default discord notfication delay wait of 10 seconds");
-                10
-            }
-        };
+        let wait: u32 = matches.value_of("wait").unwrap_or("10").parse()
+            .expect("wait must be an integer");
+
 
         Ok(Config {
             threshold,
             wait,
+            use_discord,
             discord_channel_id,
             discord_token,
         })
@@ -195,24 +199,27 @@ fn main() {
 
 fn regular_capture() {
 
+    // Parse Config with Clap
+    let matches = utils::parse_args();
+   
     // Parse Config
-    let config = Config::parse().unwrap();
+    // CONFIG = Some(Config::parse(&matches).unwrap());
+    let config = Config::parse(&matches).unwrap();
 
     // Instantiate Capture Device
     let mut cap = Device::lookup().unwrap()
         .open().unwrap();
 
     // Display Config
-    println!("===== Config ===========================================");
+    println!("===== Config ===========================");
     println!("Threshold: {} (Only triggers after this many packets)", config.threshold);
     println!("     Wait: {} (Waits this many seconds before sending another Discord Message)", config.wait);
-    if config.discord_channel_id == "".to_string() || config.discord_token == "".to_string() {
-        println!("   Notify: None (set DISCORD_TOKEN and DISCORD_CHANNEL_ID env var to notify with Discord bot)");
-    } else {
+    if config.use_discord {
         println!("   Notify: Discord");
-
+    } else {
+        println!("   Notify: None (set DISCORD_TOKEN and DISCORD_CHANNEL_ID env var to notify with Discord bot)");
     }
-    println!("=========================================================");
+    println!("========================================");
 
     // Instantiate Hit Counter
     let mut counter = HitCounter::new(config.threshold, config.wait);
