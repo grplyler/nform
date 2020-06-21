@@ -22,7 +22,7 @@
 ## Key Features
 * **Detect nmap stealth scans**
     * Tested with `SYN`, `FIN`, `ACK`, `XMAS` and `NULL` tcp scans.
-* **Simple notifications**
+* **Simple Notifications**
     * Discord is currently supported, with other coming soon!
 * **Small, Single Binary**
     * `nmap` tailored packet filtration and detection in a `6.8M` binary.
